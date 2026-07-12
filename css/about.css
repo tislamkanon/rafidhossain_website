@@ -1,0 +1,391 @@
+/* ============================================================
+   ABOUT / STORY PAGE — extends styles.css design tokens
+   ============================================================ */
+
+/* ---------- Back button ---------- */
+.page-hero {
+    padding: 125px 0 0;
+    background: var(--bg-alt);
+}
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    padding: 10px 18px 10px 14px;
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius-pill);
+    transition: color 0.25s ease, border-color 0.25s ease, transform 0.25s var(--ease);
+    margin-bottom: 20px;
+}
+.back-link svg { transition: transform 0.25s var(--ease); }
+.back-link:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+    transform: translateX(-3px);
+}
+.back-link:hover svg { transform: translateX(-3px); }
+
+/* ---------- Journey page shell (Hero copy -> Services -> Journey -> Tools) ---------- */
+.journey-page {
+    background: var(--bg-alt);
+    padding: 10px 0 100px;
+}
+
+.journey-page__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+}
+
+.journey-page__content {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Each block is a full "section" worth of content stacked in the left column */
+.journey-block {
+    padding: 70px 0;
+    border-bottom: 1px solid var(--border);
+}
+.journey-block:first-child { padding-top: 0; }
+.journey-block:last-child { border-bottom: none; padding-bottom: 0; }
+
+/* Sticky image column */
+.journey-page__sticky {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-self: start;
+    height: fit-content;
+    min-height: 1px;
+}
+.sticky-image-card {
+    position: relative;
+    width: min(380px, 100%);
+    aspect-ratio: 340 / 476;
+    border-radius: var(--radius-image);
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+}
+/* Pinned: fixed to the viewport, positioned/sized via JS (about-page.js) */
+.sticky-image-card.is-pinned {
+    position: fixed;
+    z-index: 5;
+}
+/* Parked: bottom of the journey-page grid has been reached, so the
+   card returns to normal flow, anchored precisely via JS (top/left)
+   so it continues scrolling up with the Tools content beneath it */
+.sticky-image-card.is-parked {
+    position: absolute;
+}
+.sticky-image-layer {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: translateY(100%);
+    transition: transform 0.6s var(--ease);
+}
+.sticky-image-layer.is-active { transform: translateY(0); }
+
+/* Off-frame starting positions for the incoming layer (set instantly,
+   no transition, before it animates in) */
+.sticky-image-layer.is-enter-bottom { transform: translateY(100%); }
+.sticky-image-layer.is-enter-top { transform: translateY(-100%); }
+
+/* Exit directions for the outgoing layer — matches scroll direction */
+.sticky-image-layer.is-exit-up { transform: translateY(-100%); }
+.sticky-image-layer.is-exit-down { transform: translateY(100%); }
+
+/* Used briefly to jump a layer off-frame without animating the jump itself */
+.sticky-image-layer.no-transition { transition: none; }
+
+/* ---------- About Me highlight list ---------- */
+.highlight-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin: 0 0 28px;
+}
+.highlight-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 15px;
+    color: var(--text);
+    line-height: 1.5;
+}
+.highlight-list__icon {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    margin-top: 1px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: #111;
+}
+
+/* ---------- Discover My Journey ---------- */
+.journey-list {
+    margin-top: 32px;
+    border-top: 1px solid var(--border);
+}
+.journey-item {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 22px 0;
+    border-bottom: 1px solid var(--border);
+    flex-wrap: wrap;
+}
+.journey-item__title {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: clamp(18px, 2.2vw, 24px);
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+    color: var(--text);
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+.journey-item__type {
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: var(--bg);
+    border: 1px solid var(--border);
+    padding: 4px 10px;
+    border-radius: var(--radius-pill);
+}
+.journey-item__meta { text-align: right; }
+.journey-item__company {
+    display: block;
+    font-weight: 600;
+    color: var(--accent);
+    font-size: 15px;
+}
+.journey-item__years {
+    display: block;
+    color: var(--text-muted);
+    font-size: 13px;
+    margin-top: 2px;
+}
+
+/* ---------- Companies I've Worked For ---------- */
+.companies-worked {
+    margin-top: 32px;
+}
+.companies-worked__label {
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 14px;
+}
+.companies-worked__logos {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 18px;
+    flex-wrap: wrap;
+}
+.companies-worked__logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    background: var(--bg);
+    overflow: hidden;
+    flex-shrink: 0;
+}
+.companies-worked__logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.journey-resume-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 32px;
+    padding: 8px 16px;
+    font-size: 12px;
+}
+
+/* ---------- Tools I Use ---------- */
+.tools-list {
+    margin-top: 32px;
+    border-top: 1px solid var(--border);
+}
+.tool-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+    padding: 22px 0;
+    border-bottom: 1px solid var(--border);
+}
+.tool-item__icon {
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    color: #fff;
+    overflow: hidden;
+}
+.tool-item__icon img {
+    width: 80%;
+    height: 80%;
+    object-fit: contain;
+}
+.tool-item__icon--notion { background: #ffffff; }
+
+
+.tool-item__title {
+    font-weight: 700;
+    font-size: 17px;
+    color: var(--text);
+    margin: 0 0 6px;
+}
+.tool-item__desc {
+    color: var(--text-muted);
+    font-size: 14px;
+    line-height: 1.55;
+    margin: 0;
+    max-width: 480px;
+}
+
+/* ---------- Achievements ---------- */
+.achievements {
+    padding: 100px 0 110px;
+    background: var(--bg);
+}
+.achievements__header {
+    max-width: 640px;
+    margin: 0 auto 56px;
+    text-align: center;
+}
+.achievements__header .eyebrow { display: block; }
+.achievements__header .section-lead { margin-left: auto; margin-right: auto; }
+
+.achievements__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.achievement-card {
+    border-radius: var(--radius-card);
+    background: var(--card);
+    overflow: hidden;
+    transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
+}
+.achievement-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+}
+.achievement-card__image {
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    position: relative;
+    background: #000;
+}
+.achievement-card__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s var(--ease);
+    cursor: zoom-in;
+}
+/* On hover, reveal the full (uncropped) image by switching to
+   object-fit: contain and gently scaling it up slightly */
+.achievement-card__image:hover img {
+    object-fit: contain;
+    transform: scale(1.03);
+}
+.achievement-card__body {
+    padding: 20px 22px 24px;
+}
+.achievement-card__title {
+    font-weight: 700;
+    font-size: 17px;
+    color: var(--text);
+    margin: 0 0 6px;
+}
+.achievement-card__desc {
+    color: var(--text-muted);
+    font-size: 14px;
+    line-height: 1.55;
+    margin: 0;
+}
+
+/* Staggered reveal, matching the .bento card stagger pattern site-wide */
+.achievements__grid .reveal:nth-child(1) { transition-delay: 0ms; }
+.achievements__grid .reveal:nth-child(2) { transition-delay: 80ms; }
+.achievements__grid .reveal:nth-child(3) { transition-delay: 160ms; }
+.achievements__grid .reveal:nth-child(4) { transition-delay: 240ms; }
+.achievements__grid .reveal:nth-child(5) { transition-delay: 320ms; }
+.achievements__grid .reveal:nth-child(6) { transition-delay: 400ms; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+    .journey-page__grid {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+    .journey-page__sticky {
+        position: static;
+        order: -1;
+        margin-bottom: 40px;
+    }
+    .sticky-image-card,
+    .sticky-image-card.is-pinned,
+    .sticky-image-card.is-parked {
+        position: relative !important;
+        left: auto !important;
+        top: auto !important;
+        width: min(380px, 100%) !important;
+        margin: 0 auto;
+    }
+    .sticky-image-card { margin: 0 auto; }
+    .journey-block { padding: 40px 0; }
+
+    .achievements { padding: 70px 0 80px; }
+    .achievements__grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 640px) {
+    .page-hero { padding: 120px 0 10px; }
+    .journey-page { padding: 30px 0 70px; }
+    .journey-item, .tool-item { padding: 18px 0; }
+    .journey-item__meta { text-align: left; }
+
+    .achievements { padding: 50px 0 60px; }
+    .achievements__header { margin-bottom: 36px; }
+    .achievements__grid { grid-template-columns: 1fr; gap: 18px; }
+}

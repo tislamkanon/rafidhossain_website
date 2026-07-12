@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Rafid Hossain - About Me" />
+    <title>About - Rafid Hossain</title>
+
+     <!-- Favicons -->
+  <link rel="icon" type="image/png" href="assets/images/nav_circle_rafid.png" />
+  <link rel="shortcut icon" type="image/png" href="assets/images/nav_circle_rafid.png" />
+  <link rel="apple-touch-icon" href="assets/images/nav_circle_rafid.png" />
+
+    <script>
+        (function () {
+            try {
+                var saved = localStorage.getItem('theme');
+                if (saved === 'dark' || saved === 'light') {
+                    document.documentElement.setAttribute('data-theme', saved);
+                }
+            } catch (e) { /* no-op */ }
+        })();
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/about.css" />
+</head>
+<body>
+
+    <!-- ============ NAVBAR ============ -->
+    <nav class="navbar" id="navbar" aria-label="Primary">
+        <div class="navbar__inner">
+            <a href="index.html#home" class="navbar__avatar" aria-label="Home">
+                <img src="assets/images/nav_circle_rafid.png" alt="Rafid Hossain avatar" />
+            </a>
+
+            <!-- State A: full nav links -->
+            <ul class="navbar__links" id="navLinks">
+                <li><a href="index.html#home" class="nav-link" data-target="home"><span class="nav-link__flip"><span class="nav-link__flip-face">Home</span><span class="nav-link__flip-face nav-link__flip-face--hover" aria-hidden="true">Home</span></span></a></li>
+                <li><a href="index.html#services" class="nav-link" data-target="services"><span class="nav-link__flip"><span class="nav-link__flip-face">Service</span><span class="nav-link__flip-face nav-link__flip-face--hover" aria-hidden="true">Service</span></span></a></li>
+                <li><a href="about.html" class="nav-link active" data-target="about"><span class="nav-link__flip"><span class="nav-link__flip-face">About</span><span class="nav-link__flip-face nav-link__flip-face--hover" aria-hidden="true">About</span></span></a></li>
+                <li><a href="index.html#projects" class="nav-link" data-target="projects"><span class="nav-link__flip"><span class="nav-link__flip-face">Projects</span><span class="nav-link__flip-face nav-link__flip-face--hover" aria-hidden="true">Projects</span></span></a></li>
+            </ul>
+
+            <a href="index.html#contact" class="navbar__cta">Contact</a>
+
+            <!-- State B: available-for-work indicator (shown when collapsed) -->
+            <div class="navbar__available" aria-hidden="true">
+                <span class="navbar__available-text">Available for work</span>
+                <span class="pulse-dot" aria-label="Available"></span>
+            </div>
+
+            <!-- Theme toggle (lives in navbar, visible in both expanded and collapsed states) -->
+            <button class="navbar__theme-toggle" id="themeToggle" role="switch" aria-checked="false" aria-label="Toggle dark mode">
+                <span class="navbar__theme-toggle-knob"></span>
+            </button>
+
+            <!-- Hamburger (mobile) — toggles the expanding pill panel -->
+            <button class="navbar__hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+                <svg class="icon-hamburger" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+                <svg class="icon-close" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="5" y1="5" x2="19" y2="19"/><line x1="19" y1="5" x2="5" y2="19"/></svg>
+            </button>
+        </div>
+
+        <!-- Mobile expanding panel — the pill itself grows downward into this -->
+        <div class="navbar__mobile-panel" id="mobileMenu" aria-hidden="true">
+            <div class="navbar__mobile-panel-inner">
+                <ul class="navbar__mobile-links">
+                    <li><a href="index.html#home" class="mobile-menu__link">Home</a></li>
+                    <li><a href="index.html#services" class="mobile-menu__link">Service</a></li>
+                    <li><a href="about.html" class="mobile-menu__link">About</a></li>
+                    <li><a href="index.html#projects" class="mobile-menu__link">Projects</a></li>
+                </ul>
+                <div class="navbar__mobile-bottom">
+                    <div class="mobile-menu__theme-row">
+                        <button class="mobile-menu__theme-toggle" id="mobileThemeToggle" role="switch" aria-checked="false" aria-label="Toggle dark mode">
+                            <span class="navbar__theme-toggle-knob"></span>
+                        </button>
+                    </div>
+                    <a href="index.html#contact" class="mobile-menu__link mobile-menu__link--cta">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+
+        <!-- ============ BACK BUTTON ============ -->
+        <section class="page-hero">
+            <div class="container">
+                <a href="index.html#about" class="back-link">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                    Back to Home
+                </a>
+            </div>
+        </section>
+
+        <!-- ============ JOURNEY PAGE (About -> Services -> Journey -> Tools) ============ -->
+        <section class="journey-page">
+            <div class="container">
+                <div class="journey-page__grid">
+
+                    <!-- LEFT: stacked content blocks -->
+                    <div class="journey-page__content">
+
+                        <!-- 1. ABOUT ME (same copy as homepage, minus the "My Story" button) -->
+                        <div class="journey-block reveal" id="block-about">
+                            <h2 class="section-title">About Me</h2>
+                            <p class="section-lead">
+                            Knock knock! It's Rafid, storyteller by instinct, strategist by data.
+                            800+ ad copies written, 100K+ followers grown. I help brands sound human in a noisy feed.
+                            </p>
+
+                            <ul class="stats">
+                                <li class="stat">
+                                    <span class="stat__num" data-count="6" data-suffix="">0</span>
+                                    <span class="stat__label">Years of Experience</span>
+                                </li>
+                                <li class="stat">
+                                    <span class="stat__num" data-count="100" data-suffix="+">0</span>
+                                    <span class="stat__label">Completed Projects</span>
+                                </li>
+                                <li class="stat">
+                                    <span class="stat__num" data-count="10" data-suffix="+">0</span>
+                                    <span class="stat__label">Clients on Worldwide</span>
+                                </li>
+                            </ul>
+
+                            <ul class="highlight-list">
+                                <li><span class="highlight-list__icon" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span><span>800+ ad copies written for real campaigns</span></li>
+                                <li><span class="highlight-list__icon" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span><span>100K+ followers built across multiple platforms</span></li>
+                                <li><span class="highlight-list__icon" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span><span>200+ social media content</span></li>
+                                <li><span class="highlight-list__icon" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span><span>30+ book campaigns managed solo</span></li>
+                            </ul>
+
+                            <div class="about__contact">
+                                <div>
+                                    <span class="about__contact-label">Call Today :</span>
+                                    <a href="https://wa.me/8801794572550" target="_blank" class="about__contact-value">+88 01794 572550</a>
+                                </div>
+                                <div>
+                                    <span class="about__contact-label">Email :</span>
+                                    <a href="mailto:rafidhossain567@gmail.com" target="_blank" class="about__contact-value">rafidhossain567@gmail.com</a>
+                                </div>
+                            </div>
+                            <div class="social-links" aria-label="Social links">
+                                <a href="https://www.facebook.com/readroambyrafid" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="social-link">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="https://youtube.com/@rafid_hossain1282?si=IMR4V3C8cSavdpC" target="_blank" rel="noopener noreferrer" aria-label="YouTube" class="social-link">
+                                    <i class="fab fa-youtube"></i>
+                                </a>
+                                <a href="https://www.linkedin.com/in/rafidhossin" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="social-link">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                                <a href="mailto:rafidhossain567@gmail.com" target="_blank" rel="noopener noreferrer" aria-label="Email" class="social-link">
+                                    <i class="fas fa-envelope"></i>
+                                </a>
+                                <a href="https://wa.me/8801794572550" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" class="social-link">
+                                    <i class="fab fa-whatsapp"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- 2. WHAT CAN I DO FOR YOU (same copy + accordion as homepage) -->
+                        <div class="journey-block reveal" id="block-services">
+                            <h2 class="section-title">What I Can Do For You</h2>
+                            <p class="section-lead">
+                               As a content writer, I take messy ideas and shape them into stories people connect with.
+                            </p>
+
+                            <ul class="accordion" id="accordion">
+                                <li class="accordion__item">
+                                    <button class="accordion__header" aria-expanded="false">
+                                        <span class="accordion__label"><span class="accordion__num">1.</span> Content Writing</span>
+                                        <span class="accordion__chevron" aria-hidden="true">
+                                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                                        </span>
+                                    </button>
+                                    <div class="accordion__panel">
+                                        <ul class="accordion__bullets">
+                                            <li><span class="accordion__bullet-icon" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span><span>SEO-optimised blogs and website copy</span></li>
+                                            <li><span class="accordion__bullet-icon" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span><span>Scroll-stopping captions and brand stories</span></li>
+                                            <li><span class="accordion__bullet-icon" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span><span>Copy that turns readers into customers</span></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li class="accordion__item">
+                                    <button class="accordion__header" aria-expanded="false">
+                                        <span class="accordion__label"><span class="accordion__num">2.</span> Business Analyst</span>
+                                        <span class="accordion__chevron" aria-hidden="true">
+                                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                                        </span>
+                                    </button>
+                                    <div class="accordion__panel">
+                                        <ul class="accordion__bullets">
+                                            <li><span class="accordion__bullet-icon" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span><span>Finding the "why" behind every number</span></li>
+                                            <li><span class="accordion__bullet-icon" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span><span>Market research using Power BI and Tableau</span></li>
+                                            <li><span class="accordion__bullet-icon" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span><span>Campaign performance, tracked and translated</span></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li class="accordion__item">
+                                    <button class="accordion__header" aria-expanded="false">
+                                        <span class="accordion__label"><span class="accordion__num">3.</span> Social Media Specialist</span>
+                                        <span class="accordion__chevron" aria-hidden="true">
+                                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                                        </span>
+                                    </button>
+                                    <div class="accordion__panel">
+                                        <ul class="accordion__bullets">
+                                            <li><span class="accordion__bullet-icon" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span><span>100K+ followers, grown from scratch</span></li>
+                                            <li><span class="accordion__bullet-icon" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span><span>Campaign planning built on real audience data</span></li>
+                                            <li><span class="accordion__bullet-icon" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span><span>Engagement that turns followers into fans</span></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li class="accordion__item">
+                                    <button class="accordion__header" aria-expanded="false">
+                                        <span class="accordion__label"><span class="accordion__num">4.</span> Trend Research</span>
+                                        <span class="accordion__chevron" aria-hidden="true">
+                                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                                        </span>
+                                    </button>
+                                    <div class="accordion__panel">
+                                        <ul class="accordion__bullets">
+                                            <li><span class="accordion__bullet-icon" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span><span>Competitor analysis that finds the gap</span></li>
+                                            <li><span class="accordion__bullet-icon" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span><span>Cultural and audience research, backed by data</span></li>
+                                            <li><span class="accordion__bullet-icon" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span><span>Content trends turned into actionable strategy</span></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- 3. DISCOVER MY JOURNEY (generic placeholders — edit titles/companies/years) -->
+                        <div class="journey-block reveal" id="block-journey">
+                            <h2 class="section-title">Discover My Journey</h2>
+                            <p class="section-lead">
+                                From curious creator to full-time writer, my path has been
+                                shaped by a passion for crafting purposeful, audience-first
+                                content — blending storytelling, strategy, and data into
+                                every project.
+                            </p>
+
+                            <div class="journey-list">
+                                <div class="journey-item">
+                                    <span class="journey-item__title">CONTENT CONTRIBUTOR<span class="journey-item__type">Project Based</span></span>
+                                    <span class="journey-item__meta">
+                                        <span class="journey-item__company">The Daily Star</span>
+                                        <span class="journey-item__years">2025 - Present</span>
+                                    </span>
+                                </div>
+                                <div class="journey-item">
+                                    <span class="journey-item__title">SENIOR COPYWRITER<span class="journey-item__type">Full Time</span></span>
+                                    <span class="journey-item__meta">
+                                        <span class="journey-item__company">Concord Healthcare Group</span>
+                                        <span class="journey-item__years">2024 - 2026</span>
+                                    </span>
+                                </div>
+                                <div class="journey-item">
+                                    <span class="journey-item__title">RESEARCHER & WRITER<span class="journey-item__type">Part Time</span></span>
+                                    <span class="journey-item__meta">
+                                        <span class="journey-item__company">Folklore Expedition Bangladesh</span>
+                                        <span class="journey-item__years">2022 - 2024</span>
+                                    </span>
+                                </div>
+                                <div class="journey-item">
+                                    <span class="journey-item__title">GROWTH STRATEGIST LOOPPIX<span class="journey-item__type">Self-Employed</span></span>
+                                    <span class="journey-item__meta">
+                                        <span class="journey-item__company">Loopix</span>
+                                        <span class="journey-item__years">2026 - Present</span>
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="companies-worked">
+                                <span class="companies-worked__label">Companies I've Worked For</span>
+                                <div class="companies-worked__logos">
+                                    <span class="companies-worked__logo"><img src="assets/company_logo/loopix.jpg" alt="Loopix"></span>
+                                    <span class="companies-worked__logo"><img src="assets/company_logo/daily_star.png" alt="The Daily Star"></span>
+                                    <span class="companies-worked__logo"><img src="assets/company_logo/folklore.jpg" alt="Folklore Expedition Bangladesh"></span>
+                                    <span class="companies-worked__logo"><img src="assets/company_logo/concord.png" alt="Concord Healthcare Group"></span>
+                                </div>
+                            </div>
+
+                            <!-- PLACEHOLDER LINK: swap href with the real Google Drive resume link -->
+                            <a href="https://drive.google.com/file/d/1SXbf7iYu92OAo0gMebFepiJaVY8rp894/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn btn--outline journey-resume-btn">
+                                View Resume
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"></path><path d="M10 14 21 3"></path><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path></svg>
+                            </a>
+                        </div>
+
+                        <!-- 4. TOOLS I USE -->
+                        <div class="journey-block reveal" id="block-tools">
+                            <h2 class="section-title">Tools I Use</h2>
+                            <p class="section-lead">
+                                I work with a lean, reliable toolkit — enough to write,
+                                design, and present without ever slowing the process down.
+                            </p>
+
+                            <!-- PLACEHOLDER ICONS: swap the <i> tag in each .tool-item__icon with
+                                 <img src="assets/images/tools/your-logo.png" alt="..."> once you
+                                 have the real logo files. -->
+                            <div class="tools-list">
+                                <div class="tool-item">
+                                    <span class="tool-item__icon tool-item__icon--canva" aria-hidden="true"><img src="assets/images/canva.png" alt="Canva"></span>
+                                    <div>
+                                        <h3 class="tool-item__title">Canva</h3>
+                                        <p class="tool-item__desc"> I use Canva to quickly put together visuals and campaign mockups on my own, no need to wait around for a designer.</p>
+                                    </div>
+                                </div>
+                                <div class="tool-item">
+                                    <span class="tool-item__icon tool-item__icon--notion" aria-hidden="true"><img src="assets/images/notion.png" alt="Notion"></span>
+                                    <div>
+                                        <h3 class="tool-item__title">Notion</h3>
+                                        <p class="tool-item__desc">I keep my content calendars, client briefs, and projects organized here so nothing slips through the cracks.</p>
+                                    </div>
+                                </div>
+                                <div class="tool-item">
+                                    <span class="tool-item__icon tool-item__icon--powerbi" aria-hidden="true"><img src="assets/images/powerbi.png" alt="PowerBI"></span>
+                                    <div>
+                                        <h3 class="tool-item__title">PowerBI</h3>
+                                        <p class="tool-item__desc">I turn messy campaign data into simple visuals and dashboards that are easy to actually understand.</p>
+                                    </div>
+                                </div>
+                                <div class="tool-item">
+                                    <span class="tool-item__icon tool-item__icon--excel" aria-hidden="true"><img src="assets/images/excel.png" alt="Excel"></span>
+                                    <div>
+                                        <h3 class="tool-item__title">Excel</h3>
+                                        <p class="tool-item__desc">I build client quotations, track deliverables, and crunch the numbers behind every campaign or pitch.</p>
+                                    </div>
+                                </div>
+                                <div class="tool-item">
+                                    <span class="tool-item__icon tool-item__icon--semrush" aria-hidden="true"><img src="assets/images/semrush.png" alt="Semrush"></span>
+                                    <div>
+                                        <h3 class="tool-item__title">Semrush</h3>
+                                        <p class="tool-item__desc">I use this to research keywords, check SEO performance, and plan content that's backed by real data, not guesswork.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- RIGHT: sticky image card — stays in place, only the photo crossfades -->
+                    <div class="journey-page__sticky">
+                        <div class="sticky-image-card">
+                            <img id="stickyImageA" class="sticky-image-layer is-active" src="assets/images/rafid_2.jpg" alt="Portrait of Rafid Hossain" />
+                            <img id="stickyImageB" class="sticky-image-layer" src="" alt="" />
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ ACHIEVEMENTS ============ -->
+        <section id="achievements" class="achievements">
+            <div class="container">
+                <div class="achievements__header reveal">
+                    <span class="eyebrow">Milestones</span>
+                    <h2 class="section-title">Achievements</h2>
+                    <p class="section-lead">
+                        A few career highlights along the way — recognitions, milestones,
+                        and moments that marked real growth.
+                    </p>
+                </div>
+
+                <!-- ============================================================
+                     ★ EDIT YOUR ACHIEVEMENTS HERE ★
+                     Each block below is one card. To change a card, just swap:
+                       - the <img src="..."> and alt text
+                       - the title text
+                       - the description text
+                     To add a card, copy a whole ".achievement-card" block and
+                     paste it inside ".achievements__grid" below. To remove one,
+                     delete its block. The grid re-flows automatically (3 per
+                     row on desktop, 2 on tablet, 1 on mobile).
+                     ============================================================ -->
+                <div class="achievements__grid">
+                    <div class="achievement-card reveal">
+                        <div class="achievement-card__image">
+                            <img src="assets/images/achieve_1.jpg" alt="Award ceremony" />
+                        </div>
+                        <div class="achievement-card__body">
+                            <h3 class="achievement-card__title">Featured in Dainik Bhorer Barta</h3>
+                            <p class="achievement-card__desc">Featured in Dainik Bhorer Barta's lifestyle section as "From Reader to Bookish Creator,"
+spotlighting my journey with books.</p>
+                        </div>
+                    </div>
+
+                    <div class="achievement-card reveal">
+                        <div class="achievement-card__image">
+                            <img src="assets/images/achieve_2.jpg" alt="Speaking at a conference" />
+                        </div>
+                        <div class="achievement-card__body">
+                            <h3 class="achievement-card__title">Oitijjo Award</h3>
+                            <p class="achievement-card__desc">Received the "Book Influencer, Get Together" award from Oitijjo, honoring my
+work as a booktuber for staying rooted with books.</p>
+                        </div>
+                    </div>
+
+                    <div class="achievement-card reveal">
+                        <div class="achievement-card__image">
+                            <img src="assets/images/achieve_3.jpg" alt="Certificate of completion" />
+                        </div>
+                        <div class="achievement-card__body">
+                            <h3 class="achievement-card__title">Recognition from Rokomari.com</h3>
+                            <p class="achievement-card__desc">Received from Rokomari.com, Bangladesh's largest online bookstore,
+celebrating my bookstagram name: Read Roam by Rafid.</p>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ CONTACT ============ -->
+        <section id="contact" class="contact">
+            <div class="container contact__grid">
+                <div class="contact__image reveal">
+                    <div class="tilted-card">
+                        <img src="assets/images/ready_to_grow.jpg" alt="Portrait of Rafid Hossain" />
+                    </div>
+                </div>
+
+                <div class="contact__form-wrap reveal">
+                    <h2 class="section-title">Ready To Grow?</h2>
+                    <p class="section-lead">
+                        Got a brand, a website, or a big idea brewing? Let's make it happen together.
+                    </p>
+
+                    <form class="form" id="contactForm" novalidate>
+                        <div class="form__row">
+                            <div class="form__field">
+                                <label for="name">Name</label>
+                                <input type="text" id="name" name="name" placeholder="John Smith" required autocomplete="name" />
+                                <span class="form__error" data-error-for="name"></span>
+                            </div>
+                            <div class="form__field">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" placeholder="johnsmith@gmail.com" required autocomplete="email" />
+                                <span class="form__error" data-error-for="email"></span>
+                            </div>
+                        </div>
+
+                        <div class="form__field">
+                            <label for="service">Service Needed?</label>
+                            <div class="form__select-wrap">
+                                <select id="service" name="service" required>
+                                    <option value="">Select…</option>
+                                    <option value="content-writing">Content Writing</option>
+                                    <option value="business-analyst">Business Analyst</option>
+                                    <option value="social-media">Social Media Specialist</option>
+                                    <option value="trend-research">Trend Research</option>
+                                    <option value="other">Other</option>
+                                </select>
+                                <svg class="form__select-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                            </div>
+                            <span class="form__error" data-error-for="service"></span>
+                        </div>
+
+                        <div class="form__field">
+                            <label for="message">What Can I Help You…</label>
+                            <textarea id="message" name="message" rows="5" placeholder="Hello, I'd like to enquire about…" required></textarea>
+                            <span class="form__error" data-error-for="message"></span>
+                        </div>
+
+                        <button type="submit" class="btn btn--outline">Submit</button>
+                    </form>
+
+                    <div class="form__success" id="formSuccess" hidden>
+                        <h3>Thanks, I'll be in touch!</h3>
+                        <p>Your message has been received. I'll get back to you within 1–2 business days.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ============ FOOTER ============ -->
+    <footer class="footer">
+        <div class="container footer__inner">
+            <p class="footer__copy">© <span id="year"></span> Rafid Hossain. All rights reserved.</p>
+            <div class="social-links" aria-label="Social links">
+                <a href="https://www.facebook.com/readroambyrafid" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="social-link">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://youtube.com/@rafid_hossain1282?si=IMR4V3C8cSavdpC" target="_blank" rel="noopener noreferrer" aria-label="YouTube" class="social-link">
+                    <i class="fab fa-youtube"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/rafidhossin" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="social-link">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="mailto:rafidhossain567@gmail.com" target="_blank" rel="noopener noreferrer" aria-label="Email" class="social-link">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                <a href="https://wa.me/8801794572550" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" class="social-link">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+            </div>
+            <p class="footer__credit">Made by <a href="https://github.com/tislamkanon" target="_blank" rel="noopener noreferrer">TIslamKanon</a></p>
+        </div>
+    </footer>
+
+    <!-- EmailJS — sends the contact form to your inbox -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/about-page.js"></script>
+</body>
+</html>

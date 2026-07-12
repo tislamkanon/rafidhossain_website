@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Rafid Hossain - All Projects" />
+    <title>All Projects — Rafid Hossain</title>
+
+     <!-- Favicons -->
+  <link rel="icon" type="image/png" href="assets/images/nav_circle_rafid.png" />
+  <link rel="shortcut icon" type="image/png" href="assets/images/nav_circle_rafid.png" />
+  <link rel="apple-touch-icon" href="assets/images/nav_circle_rafid.png" />
+
+    <script>
+        (function () {
+            try {
+                var saved = localStorage.getItem('theme');
+                if (saved === 'dark' || saved === 'light') {
+                    document.documentElement.setAttribute('data-theme', saved);
+                }
+            } catch (e) { /* no-op */ }
+        })();
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/projects_list.css" />
+</head>
+<body>
+
+    <!-- ============ NAVBAR ============ -->
+    <nav class="navbar" id="navbar" aria-label="Primary">
+        <div class="navbar__inner">
+            <a href="index.html#home" class="navbar__avatar" aria-label="Home">
+                <img src="assets/images/nav_circle_rafid.png" alt="Rafid Hossain avatar" />
+            </a>
+
+            <!-- State A: full nav links -->
+            <ul class="navbar__links" id="navLinks">
+                <li><a href="index.html#home" class="nav-link" data-target="home"><span class="nav-link__flip"><span class="nav-link__flip-face">Home</span><span class="nav-link__flip-face nav-link__flip-face--hover" aria-hidden="true">Home</span></span></a></li>
+                <li><a href="index.html#services" class="nav-link" data-target="services"><span class="nav-link__flip"><span class="nav-link__flip-face">Service</span><span class="nav-link__flip-face nav-link__flip-face--hover" aria-hidden="true">Service</span></span></a></li>
+                <li><a href="index.html#about" class="nav-link" data-target="about"><span class="nav-link__flip"><span class="nav-link__flip-face">About</span><span class="nav-link__flip-face nav-link__flip-face--hover" aria-hidden="true">About</span></span></a></li>
+                <li><a href="index.html#projects" class="nav-link active" data-target="projects"><span class="nav-link__flip"><span class="nav-link__flip-face">Projects</span><span class="nav-link__flip-face nav-link__flip-face--hover" aria-hidden="true">Projects</span></span></a></li>
+            </ul>
+
+            <a href="index.html#contact" class="navbar__cta">Contact</a>
+
+            <!-- State B: available-for-work indicator (shown when collapsed) -->
+            <div class="navbar__available" aria-hidden="true">
+                <span class="navbar__available-text">Available for work</span>
+                <span class="pulse-dot" aria-label="Available"></span>
+            </div>
+
+            <!-- Theme toggle (lives in navbar, visible in both expanded and collapsed states) -->
+            <button class="navbar__theme-toggle" id="themeToggle" role="switch" aria-checked="false" aria-label="Toggle dark mode">
+                <span class="navbar__theme-toggle-knob"></span>
+            </button>
+
+            <!-- Hamburger (mobile) — toggles the expanding pill panel -->
+            <button class="navbar__hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+                <svg class="icon-hamburger" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+                <svg class="icon-close" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="5" y1="5" x2="19" y2="19"/><line x1="19" y1="5" x2="5" y2="19"/></svg>
+            </button>
+        </div>
+
+        <!-- Mobile expanding panel — the pill itself grows downward into this -->
+        <div class="navbar__mobile-panel" id="mobileMenu" aria-hidden="true">
+            <div class="navbar__mobile-panel-inner">
+                <ul class="navbar__mobile-links">
+                    <li><a href="index.html#home" class="mobile-menu__link">Home</a></li>
+                    <li><a href="index.html#services" class="mobile-menu__link">Service</a></li>
+                    <li><a href="index.html#about" class="mobile-menu__link">About</a></li>
+                    <li><a href="index.html#projects" class="mobile-menu__link">Projects</a></li>
+                </ul>
+                <div class="navbar__mobile-bottom">
+                    <div class="mobile-menu__theme-row">
+                        <button class="mobile-menu__theme-toggle" id="mobileThemeToggle" role="switch" aria-checked="false" aria-label="Toggle dark mode">
+                            <span class="navbar__theme-toggle-knob"></span>
+                        </button>
+                    </div>
+                    <a href="index.html#contact" class="mobile-menu__link mobile-menu__link--cta">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+
+        <!-- ============ PAGE HEADER ============ -->
+        <section class="page-hero">
+            <div class="container">
+                <a href="index.html#projects" class="back-link">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                    Back to Home
+                </a>
+
+                <div class="page-hero__header reveal">
+                    <h1 class="section-title">All Projects</h1>
+                    <p class="section-lead">
+                        A complete look at the work I've done — from content strategy
+                        to branding, web design, and social campaigns.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ FEATURED PROJECT ============ -->
+        <section class="featured-project" id="featured">
+            <div class="container">
+                <span class="eyebrow featured-project__eyebrow">Featured Project</span>
+                <div id="featuredProject"><!-- injected by js/projects_list.js --></div>
+            </div>
+        </section>
+
+        <!-- ============ ALL PROJECTS ============ -->
+        <section class="all-projects" id="allProjects">
+            <div class="container">
+                <header class="all-projects__header reveal">
+                    <h2 class="section-title">Browse All Work</h2>
+                    <p class="section-lead">
+                        Every project, all in one place. New work gets added here
+                        regularly.
+                    </p>
+                </header>
+
+                <div class="projects-list-grid" id="projectsGrid"><!-- injected by js/projects_list.js --></div>
+
+                <nav class="pagination" id="projectsPagination" aria-label="Projects pagination"><!-- injected by js/projects_list.js --></nav>
+            </div>
+        </section>
+
+        <!-- ============ CONTACT CTA ============ -->
+        <section class="projects">
+            <div class="container">
+                <div class="projects__footer reveal">
+                    <a href="index.html#contact" class="btn btn--outline">Let's Work Together</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ============ FOOTER ============ -->
+    <footer class="footer">
+        <div class="container footer__inner">
+            <p class="footer__copy">© <span id="year"></span> Rafid Hossain. All rights reserved.</p>
+            <div class="social-links" aria-label="Social links">
+                <a href="https://www.facebook.com/readroambyrafid" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="social-link">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://youtube.com/@rafid_hossain1282?si=IMR4V3C8cSavdpC" target="_blank" rel="noopener noreferrer" aria-label="YouTube" class="social-link">
+                    <i class="fab fa-youtube"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/rafidhossin" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="social-link">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="mailto:rafidhossain567@gmail.com" target="_blank" rel="noopener noreferrer" aria-label="Email" class="social-link">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                <a href="https://wa.me/8801794572550" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" class="social-link">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+            </div>
+            <p class="footer__credit">Made by <a href="https://github.com/tislamkanon" target="_blank" rel="noopener noreferrer">TIslamKanon</a></p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script src="js/projects_list.js"></script>
+</body>
+</html>
